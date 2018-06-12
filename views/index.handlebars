@@ -1,0 +1,119 @@
+<div class = "container d-flex flex-column justify-content-center">
+
+
+    <div class = "row">
+        <div class = "col-4"></div>
+        <div class = "col-4 d-flex flex-row justify-content-center">
+            <img src = "/assets/images/cute-burger.jpg" alt="burger" height="100" width="100">
+        </div>
+        <div class = "col-4"></div>
+
+    </div>
+    
+    <div class = "row space"></div>
+    <div class = "row space"></div>
+
+
+
+
+    <div class = "row">
+        <div class = "col-12">
+            <h1 class = "text-center">Eat Da Burger!</h1>
+        </div>
+    </div>
+
+    <div class = "row space"></div>
+
+    <div class = "row space"></div>
+
+    <!-- Table -->
+    <div class = "row d-flex flex-row justify-content-around">
+
+        <div class = "col-4 border border-info table-responsive">
+
+            <!-- Table Title -->
+            <div class = "row bg-info text-light">
+                <h5 class = "ml-3 mt-1">Burgers to Eat</h5>
+            </div>
+            
+            <!-- Table -->
+            <table class = "table table-sm">
+    
+                <!-- Table Entries -->
+                <tbody id = "table-body">
+
+                    <!-- Loops through the uneaten burgers and displays them onto the page -->
+                    {{#each burgers}} {{#unless eaten}}
+                    <tr>
+                        <td>
+                            <button data-id="{{this.id}}" class = "eatBurger">Eat!</button>
+                        </td>
+                        <td class = "burger-id">{{this.id}}</td>
+                        <td class = "burger-name">{{this.burger_type}}</td>
+                    </tr>
+
+                    {{/unless}}
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+
+            
+        </div>
+
+        <div class = "col-4 border border-info table-responsive">
+
+            <!-- Table Title -->
+            <div class = "row bg-info text-light">
+                <h5 class = "ml-3 mt-1">Eaten Burgers</h5>
+            </div>
+
+            <!-- Table -->
+            <table class = "table table-sm">
+    
+                <!-- Table Entries -->
+                <tbody id = "table-body">
+
+                    <!-- Loops through the eaten burgers and displays them onto the page -->
+                    {{#each burgers}} {{#if eaten}}
+                    <tr>
+                        <td class = "burger-id">{{this.id}}</td>
+                        <td class = "burger-name">{{this.burger_type}}</td>
+                    </tr>
+                    {{/if}}
+
+                    {{/each}}
+
+                </tbody>
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class = "row space"></div>
+
+    <div class = "row space"></div>
+
+    <!-- Form to submit new bugers to eat -->
+    <div class = "row" id = "new-burger">
+        <form class = "mx-auto">
+            <div class = "form-group">
+                <label for = "burger-box">Enter a burger!</label>
+                <textarea class = "form-control" rows = "3" cols = "40" id = "burger-box"></textarea>
+            </div>
+            <button type = "submit" class = "btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+
+    
+</div>
